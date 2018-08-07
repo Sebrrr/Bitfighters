@@ -120,7 +120,7 @@ namespace Bitfighters
             // bottom right corner, it would be (playerOneX, (playerOneY + 50)). The timers are already initialized, you need to fill in the code for the two
             // player timers. I already ste up the wall timers, and also the the end game timers. The walls will start moving at 10 sexonds in, reach their
             // final position 20 seconds after that, and the game will end 15 seconds later if no player kills the other. I just ran a test, 
-            // it works and there are no errors. I will keep this safe version saved on my computer in case anything goes wrong. Good Luck!
+            // it works and there are no errors. I will keep this safe version saved on my computer in case anything goes wrong.
         }
 
         private void playerTwoMove_Tick(object sender, EventArgs e)
