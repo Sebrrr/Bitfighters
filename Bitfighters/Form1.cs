@@ -19,7 +19,8 @@ namespace Bitfighters
         public Brick zoneLeft, zoneRight;
         public Brick[] platforms = new Brick[5];
 
-        public Form1() {
+        public Form1()
+        {
             InitializeComponent();
 
             one = new Player(40, 355);
@@ -43,11 +44,13 @@ namespace Bitfighters
             playerTwoMove.Interval = 10;
             playerTwoMove.Enabled = true;
             playerTwoMove.Start();
+            playerOne.Location = new Point(40, 355);
+            playerTwo.Location = new Point(615, 355);
         }
         
         int activateWallTimer = 0;
         int activateEndTimer = 0;
-        int endGame = 0;
+        int endGame = 0; 
         
 
         private void preWallTimer_Tick(object sender, EventArgs e)
@@ -96,38 +99,34 @@ namespace Bitfighters
 
         private void playerOneMove_Tick(object sender, EventArgs e)
         {
-            // fill in your code on how to keep the players from crashing into each other or phasing through any floors.
-            // I already declared variables indicating the perimiter of each of the walls.
-            // remember, the location of the players is set to the top left coordinates. since the players are 50x50 squares, if you wanted the coordinates of the
-            // bottom right corner, it would be (playerOneX, (playerOneY + 50)). The timers are already initialized, you need to fill in the code for the two
-            // player timers. I already ste up the wall timers, and also the the end game timers. The walls will start moving at 10 sexonds in, reach their
-            // final position 20 seconds after that, and the game will end 15 seconds later if no player kills the other. I just ran a test, 
-            // it works and there are no errors. I will keep this safe version saved on my computer in case anything goes wrong.
+            one.update();
+            playerOne.Location = new Point(one.getX(), one.getY());
         }
 
         private void playerTwoMove_Tick(object sender, EventArgs e)
         {
-
+            two.update();
+            playerTwo.Location = new Point(two.getX(), two.getY());
         }
     }
 
     public partial class Brick
     {
-        protected double x, y, width, height;
+        protected int x, y, width, height;
 
-        public double getX()
+        public int getX()
         {
             return x;
         }
-        public double getY()
+        public int getY()
         {
             return y;
         }
-        public double getWidth()
+        public int getWidth()
         {
             return width;
         }
-        public double getHeight()
+        public int getHeight()
         {
             return height;
         }
@@ -140,7 +139,7 @@ namespace Bitfighters
             this.height = 50;
         }
 
-        public Brick(double x, double y)
+        public Brick(int x, int y)
         {
             this.x = x;
             this.y = y;
@@ -148,7 +147,7 @@ namespace Bitfighters
             this.height = 50;
         }
 
-        public Brick(double x, double y, double width, double height)
+        public Brick(int x, int y, int width, int height)
         {
             this.x = x;
             this.y = y;
@@ -156,7 +155,7 @@ namespace Bitfighters
             this.height = height;
         }
 
-        public void shiftX(double change)
+        public void shiftX(int change)
         {
             this.x = change + this.x;
         }
@@ -166,23 +165,23 @@ namespace Bitfighters
     public partial class Player : Brick
     {
         protected double vx, vy;
-        public Player(double x, double y)
+        public Player(int x, int y)
         {
             this.x = x;
             this.y = y;
             this.width = 50;
             this.height = 50;
             this.vx = 0;
-            this.vy = 60;
+            this.vy = 10;
         }
 
         public void update()
         {
-            //Apply gravity calculations. This function is called 60 times a second
-            vy = vy + 9.8 / 60.0;
+            //Apply gravity calculations. This function is called 100 times a second
+            vy = vy + 9.8 / 100.0;
             //Shift by y velocity
-            x = x + vx;
-            y = y + vy;
+            x = x + (int)vx;
+            y = y + (int)vy;
         }
     }
 }
