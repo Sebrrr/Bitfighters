@@ -11,69 +11,7 @@ using System.Windows.Forms;
 namespace Bitfighters
 {
 
-    public partial class Brick{
-        protected double x, y, width, height;
-        
-        public double getX(){
-            return x;
-        }     
-        public double getY(){
-            return y;
-        }     
-        public double getWidth(){
-            return width;
-        }     
-        public double getHeight(){
-            return height;
-        }     
-
-        public Brick(){
-            this.x = 0;
-            this.y = 0;
-            this.width = 50;
-            this.height = 50;
-        }
-        
-        public Brick(double x, double y){
-            this.x = x;
-            this.y = y;
-            this.width = 50;
-            this.height = 50;
-}
-
-        public Brick(double x, double y, double width, double height){
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-        }
-
-        public void shiftX(double change){
-            this.x = change + this.x;
-        }
-
-    }
-
-    public partial class Player : Brick
-    {
-        protected double vx, vy;
-        public Player(double x, double y){
-            this.x = x;
-            this.y = y;
-            this.width = 50;
-            this.height = 50;
-            this.vx = 0;
-            this.vy = 60;
-        }
-        
-        public void update(){
-            //Apply gravity calculations. This function is called 60 times a second
-            vy = vy + 9.8/60.0;
-            //Shift by y velocity
-            x = x + vx;
-            y = y + vy;
-        }
-    }
+    
 
     public partial class Form1 : Form
     {
@@ -170,6 +108,81 @@ namespace Bitfighters
         private void playerTwoMove_Tick(object sender, EventArgs e)
         {
 
+        }
+    }
+
+    public partial class Brick
+    {
+        protected double x, y, width, height;
+
+        public double getX()
+        {
+            return x;
+        }
+        public double getY()
+        {
+            return y;
+        }
+        public double getWidth()
+        {
+            return width;
+        }
+        public double getHeight()
+        {
+            return height;
+        }
+
+        public Brick()
+        {
+            this.x = 0;
+            this.y = 0;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        public Brick(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+            this.width = 50;
+            this.height = 50;
+        }
+
+        public Brick(double x, double y, double width, double height)
+        {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+
+        public void shiftX(double change)
+        {
+            this.x = change + this.x;
+        }
+
+    }
+
+    public partial class Player : Brick
+    {
+        protected double vx, vy;
+        public Player(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+            this.width = 50;
+            this.height = 50;
+            this.vx = 0;
+            this.vy = 60;
+        }
+
+        public void update()
+        {
+            //Apply gravity calculations. This function is called 60 times a second
+            vy = vy + 9.8 / 60.0;
+            //Shift by y velocity
+            x = x + vx;
+            y = y + vy;
         }
     }
 }
