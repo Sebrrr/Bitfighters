@@ -10,11 +10,92 @@ using System.Windows.Forms;
 
 namespace Bitfighters
 {
+
+    public partial class Brick{
+        protected double x, y, width, height;
+        
+        public double getX(){
+            return x;
+        }     
+        public double getY(){
+            return y;
+        }     
+        public double getWidth(){
+            return width;
+        }     
+        public double getHeight(){
+            return height;
+        }     
+
+        public Brick(){
+            this.x = 0;
+            this.y = 0;
+            this.width = 50;
+            this.height = 50;
+        }
+        
+        public Brick(double x, double y){
+            this.x = x;
+            this.y = y;
+            this.width = 50;
+            this.height = 50;
+}
+
+        public Brick(double x, double y, double width, double height){
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+        }
+
+        public void shiftX(double change){
+            this.x = change + this.x;
+        }
+
+    }
+
+    public partial class Player : Brick
+    {
+        protected double vx, vy;
+        public Player(double x, double y){
+            this.x = x;
+            this.y = y;
+            this.width = 50;
+            this.height = 50;
+            this.vx = 0;
+            this.vy = 60;
+        }
+        
+        public void update(){
+            //Apply gravity calculations. This function is called 60 times a second
+            vy = vy + 9.8/60.0;
+            //Shift by y velocity
+            x = x + vx;
+            y = y + vy;
+        }
+    }
+
     public partial class Form1 : Form
     {
-        public Form1()
-        {
+        public Player one, two;
+        public Brick zoneLeft, zoneRight;
+        public Brick[] platforms = new Brick[5];
+
+        public Form1() {
             InitializeComponent();
+
+            one = new Player(40, 355);
+            two = new Player(615, 355);
+        
+            zoneLeft = new Brick(0, 0, 20, 720);
+            zoneRight = new Brick(700, 0, 20, 720);
+        
+            platforms[0] = new Brick(260, 145, 200, 20);
+            platforms[1] = new Brick(175, 255, 370, 20);
+            platforms[2] = new Brick(115, 535, 490, 20);
+            platforms[3] = new Brick(15, 410, 200, 20);
+            platforms[4] = new Brick(505, 410, 200, 20);
+
             preWallTimer.Interval = 1000;
             preWallTimer.Enabled = true;
             preWallTimer.Start();
@@ -25,48 +106,11 @@ namespace Bitfighters
             playerTwoMove.Enabled = true;
             playerTwoMove.Start();
         }
-
+        
         int activateWallTimer = 0;
         int activateEndTimer = 0;
-        int leftWallX = 10;
-        int rightWallX = 670;
         int endGame = 0;
-        double playerOneX = 40;
-        double playerOneY = 355;
-        double playerOneVX;
-        double playerOneVY = 60;
-        double playerTwoX = 615;
-        double playerTwoY = 355;
-        double playerTwoVX;
-        double playerTwoVY = 60;
-        int wallLeftLeft = 10;
-        int wallLeftRight = 33;
-        int wallLeftTop = 100;
-        int wallLeftBottom = 674;
-        int wallRightLeft = 670;
-        int wallRightRight = 693;
-        int wallRightTop = 100;
-        int wallRightBottom = 674;
-        int platformSmallLeft = 260;
-        int platformSmallRight = 437;
-        int platformSmallTop = 145;
-        int platformSmallBottom = 179;
-        int platformMediumLeft = 175;
-        int platformMediumRight = 528;
-        int platformMediumTop = 255;
-        int platformMediumBottom = 289;
-        int platformLargeLeft = 115;
-        int platformLargeRight = 590;
-        int platformLargeTop = 535;
-        int platformLargeBottom = 569;
-        int platformLeftLeft = 15;
-        int platformLeftRight = 223;
-        int platformLeftTop = 410;
-        int platformLeftBottom = 444;
-        int platformRightLeft = 475;
-        int platformRightRight = 491;
-        int platformRightTop = 410;
-        int platformRightBottom = 444;
+        
 
         private void preWallTimer_Tick(object sender, EventArgs e)
         {
@@ -85,11 +129,11 @@ namespace Bitfighters
         {
             activateEndTimer = activateEndTimer + 1;
 
-            leftWallX = leftWallX + 1;
-            rightWallX = rightWallX - 1;
+            this.zoneLeft.shiftX(1);
+            this.zoneRight.shiftX(-1);
 
-            wallLeft.Location = new Point(leftWallX, 100);
-            wallRight.Location = new Point(rightWallX, 100);
+            wallLeft.Location = new Point((int) zoneLeft.getX(), 100);
+            wallRight.Location = new Point((int) zoneRight.getX(), 100);
 
             if (activateEndTimer == 200)
             {
