@@ -10,38 +10,39 @@ using System.Windows.Forms;
 
 namespace Bitfighters
 {
-
-    
-
     public partial class Form1 : Form
     {
         public Player one, two;
         public Brick zoneLeft, zoneRight;
-        public Brick[] platforms = new Brick[5];
+        public static Brick[] platforms = new Brick[5];
 
         public Form1()
         {
             InitializeComponent();
 
-            one = new Player(40, 355);
-            two = new Player(615, 355);
+            //window is actually 490 x 490
+
+            one = new Player(40, 100);
+            two = new Player(400, 100);
         
             zoneLeft = new Brick(0, 0, 20, 720);
-            zoneRight = new Brick(700, 0, 20, 720);
+            zoneRight = new Brick(440, 0, 20, 720);
         
-            platforms[0] = new Brick(260, 145, 200, 20);
-            platforms[1] = new Brick(175, 255, 370, 20);
-            platforms[2] = new Brick(115, 535, 490, 20);
+            platforms[0] = new Brick(240, 145, 200, 20);
+            platforms[1] = new Brick(155, 255, 370, 20);
+            platforms[2] = new Brick(240, 535, 200, 20);
             platforms[3] = new Brick(15, 410, 200, 20);
             platforms[4] = new Brick(505, 410, 200, 20);
 
-            preWallTimer.Interval = 1000;
+            int FPS = 100;
+
+            preWallTimer.Interval = 100;
             preWallTimer.Enabled = true;
             preWallTimer.Start();
-            playerOneMove.Interval = 10;
+            playerOneMove.Interval = 1000/FPS;
             playerOneMove.Enabled = true;
             playerOneMove.Start();
-            playerTwoMove.Interval = 10;
+            playerTwoMove.Interval = 1000/FPS;
             playerTwoMove.Enabled = true;
             playerTwoMove.Start();
             playerOne.Location = new Point(40, 355);
@@ -97,8 +98,14 @@ namespace Bitfighters
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void playerOneMove_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine(one.getY());
             one.update();
             playerOne.Location = new Point(one.getX(), one.getY());
         }
@@ -164,6 +171,7 @@ namespace Bitfighters
 
     public partial class Player : Brick
     {
+        private bool gravity = true;
         protected double vx, vy;
         public Player(int x, int y)
         {
@@ -172,16 +180,56 @@ namespace Bitfighters
             this.width = 50;
             this.height = 50;
             this.vx = 0;
-            this.vy = 10;
+            this.vy = 0;
         }
 
         public void update()
         {
+            for(int i = 0; i < Form1.platforms.Length; i++)
+            {
+                Brick platform = Form1.platforms[i];
+                if (isTouching(platform))
+                {
+                    gravity = false;
+                }
+            }
+            gravity = true;
             //Apply gravity calculations. This function is called 100 times a second
-            vy = vy + 9.8 / 100.0;
+            if (gravity)
+            {
+                vy = vy + 9.81/100;
+            } else
+            {
+                vy = 0;
+            }
+
             //Shift by y velocity
             x = x + (int)vx;
             y = y + (int)vy;
+        }
+
+        public bool isTouching(Brick other)
+        {
+            bool goodX = (x > other.getX()) ^ (x + width < other.getX() + other.getWidth());
+            bool goodY = (y < other.getY()) ^ (y + height > other.getY() + other.getHeight());
+            return goodX && goodY;
+        }
+
+        public int[] whereTouched(Brick other)
+        {
+
+            /*
+              ____________4____________
+             |                         |
+            1|                         |2
+             |____________3____________|
+             
+            */
+            int[] collisions = new int[5];
+
+            //Check top
+
+            return new int[] { 1 };
         }
     }
 }

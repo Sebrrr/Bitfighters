@@ -63,52 +63,58 @@
             // platformLarge
             // 
             this.platformLarge.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.platformLarge.Location = new System.Drawing.Point(115, 535);
+            this.platformLarge.Location = new System.Drawing.Point(240, 535);
+            this.platformLarge.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.platformLarge.Name = "platformLarge";
-            this.platformLarge.Size = new System.Drawing.Size(475, 34);
+            this.platformLarge.Size = new System.Drawing.Size(200, 20);
             this.platformLarge.TabIndex = 0;
             this.platformLarge.TabStop = false;
             // 
             // platformLeft
             // 
             this.platformLeft.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.platformLeft.Location = new System.Drawing.Point(15, 410);
+            this.platformLeft.Location = new System.Drawing.Point(20, 410);
+            this.platformLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.platformLeft.Name = "platformLeft";
-            this.platformLeft.Size = new System.Drawing.Size(208, 34);
+            this.platformLeft.Size = new System.Drawing.Size(200, 20);
             this.platformLeft.TabIndex = 1;
             this.platformLeft.TabStop = false;
             // 
             // platformRight
             // 
             this.platformRight.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.platformRight.Location = new System.Drawing.Point(475, 410);
+            this.platformRight.Location = new System.Drawing.Point(480, 410);
+            this.platformRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.platformRight.Name = "platformRight";
-            this.platformRight.Size = new System.Drawing.Size(216, 34);
+            this.platformRight.Size = new System.Drawing.Size(200, 20);
             this.platformRight.TabIndex = 2;
             this.platformRight.TabStop = false;
             // 
             // platformMedium
             // 
             this.platformMedium.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.platformMedium.Location = new System.Drawing.Point(175, 255);
+            this.platformMedium.Location = new System.Drawing.Point(155, 255);
+            this.platformMedium.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.platformMedium.Name = "platformMedium";
-            this.platformMedium.Size = new System.Drawing.Size(353, 34);
+            this.platformMedium.Size = new System.Drawing.Size(370, 20);
             this.platformMedium.TabIndex = 3;
             this.platformMedium.TabStop = false;
             // 
             // platformSmall
             // 
             this.platformSmall.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.platformSmall.Location = new System.Drawing.Point(260, 145);
+            this.platformSmall.Location = new System.Drawing.Point(240, 145);
+            this.platformSmall.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.platformSmall.Name = "platformSmall";
-            this.platformSmall.Size = new System.Drawing.Size(177, 34);
+            this.platformSmall.Size = new System.Drawing.Size(200, 20);
             this.platformSmall.TabIndex = 4;
             this.platformSmall.TabStop = false;
             // 
             // playerOne
             // 
             this.playerOne.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.playerOne.Location = new System.Drawing.Point(40, 355);
+            this.playerOne.Location = new System.Drawing.Point(40, 325);
+            this.playerOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.playerOne.Name = "playerOne";
             this.playerOne.Size = new System.Drawing.Size(50, 50);
             this.playerOne.TabIndex = 5;
@@ -117,7 +123,8 @@
             // playerTwo
             // 
             this.playerTwo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.playerTwo.Location = new System.Drawing.Point(615, 355);
+            this.playerTwo.Location = new System.Drawing.Point(615, 325);
+            this.playerTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.playerTwo.Name = "playerTwo";
             this.playerTwo.Size = new System.Drawing.Size(50, 50);
             this.playerTwo.TabIndex = 6;
@@ -126,45 +133,50 @@
             // hpOne
             // 
             this.hpOne.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.hpOne.Location = new System.Drawing.Point(12, 24);
+            this.hpOne.Location = new System.Drawing.Point(10, 10);
+            this.hpOne.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hpOne.Name = "hpOne";
-            this.hpOne.Size = new System.Drawing.Size(284, 22);
+            this.hpOne.Size = new System.Drawing.Size(300, 20);
             this.hpOne.TabIndex = 7;
             this.hpOne.TabStop = false;
             // 
             // hpTwo
             // 
             this.hpTwo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.hpTwo.Location = new System.Drawing.Point(408, 24);
+            this.hpTwo.Location = new System.Drawing.Point(390, 10);
+            this.hpTwo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.hpTwo.Name = "hpTwo";
-            this.hpTwo.Size = new System.Drawing.Size(284, 22);
+            this.hpTwo.Size = new System.Drawing.Size(300, 20);
             this.hpTwo.TabIndex = 8;
             this.hpTwo.TabStop = false;
             // 
             // wallLeft
             // 
             this.wallLeft.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.wallLeft.Location = new System.Drawing.Point(10, 100);
+            this.wallLeft.Location = new System.Drawing.Point(0, 40);
+            this.wallLeft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.wallLeft.Name = "wallLeft";
-            this.wallLeft.Size = new System.Drawing.Size(23, 574);
+            this.wallLeft.Size = new System.Drawing.Size(20, 680);
             this.wallLeft.TabIndex = 9;
             this.wallLeft.TabStop = false;
             // 
             // wallRight
             // 
             this.wallRight.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.wallRight.Location = new System.Drawing.Point(670, 100);
+            this.wallRight.Location = new System.Drawing.Point(680, 40);
+            this.wallRight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.wallRight.Name = "wallRight";
-            this.wallRight.Size = new System.Drawing.Size(23, 574);
+            this.wallRight.Size = new System.Drawing.Size(20, 680);
             this.wallRight.TabIndex = 10;
             this.wallRight.TabStop = false;
             // 
             // topBanner
             // 
             this.topBanner.BackColor = System.Drawing.Color.Black;
-            this.topBanner.Location = new System.Drawing.Point(-8, -2);
+            this.topBanner.Location = new System.Drawing.Point(0, 0);
+            this.topBanner.Margin = new System.Windows.Forms.Padding(0);
             this.topBanner.Name = "topBanner";
-            this.topBanner.Size = new System.Drawing.Size(720, 75);
+            this.topBanner.Size = new System.Drawing.Size(700, 40);
             this.topBanner.TabIndex = 11;
             this.topBanner.TabStop = false;
             // 
@@ -190,10 +202,10 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(704, 681);
+            this.ClientSize = new System.Drawing.Size(698, 664);
             this.Controls.Add(this.wallRight);
             this.Controls.Add(this.wallLeft);
             this.Controls.Add(this.hpTwo);
@@ -206,8 +218,10 @@
             this.Controls.Add(this.platformLeft);
             this.Controls.Add(this.platformLarge);
             this.Controls.Add(this.topBanner);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "BitFighters";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.platformLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.platformLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.platformRight)).EndInit();
