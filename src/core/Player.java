@@ -139,7 +139,7 @@ public class Player extends Block {
     }
 
     public float directionToOpponent() {
-        return (float) Math.toDegrees(Math.atan2((getY() - opponent.getY()), (getX() - opponent.getX()))) + 180;
+        return ((float) (Math.toDegrees(Math.atan2((getY() - opponent.getY()), (getX() - opponent.getX()))) + 540)%360);
     }
 
     public void attack(){
@@ -151,6 +151,10 @@ public class Player extends Block {
 
     public Weapon getWeapon() {
         return weapon;
+    }
+
+    public Player getOpponent(){
+        return opponent;
     }
 
     /*

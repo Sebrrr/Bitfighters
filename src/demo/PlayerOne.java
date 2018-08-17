@@ -6,9 +6,8 @@ import java.awt.*;
 
 public class PlayerOne {
     public static void act(Player player){
-        //Following script
         if (player.distanceToOpponent() > 90) {
-            if (player.directionToOpponent() >270 && player.directionToOpponent() < 450) {
+            if (player.directionToOpponent() < 90 || player.directionToOpponent() > 270) {
                 player.moveRight();
             } else {
                 player.moveLeft();
